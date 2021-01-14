@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.w3schools.com"
+           elementFormDefault="qualified"
+           xmlns="https://www.w3schools.com">
+
+    <xs:element name="netflixTitles">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="netflix" type="netflixTitle" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="netflixTitle">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="titleType" type="titleType"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="director" type="xs:string"/>
+            <xs:element name="cast" type="xs:string"/>
+            <xs:element name="country" type="xs:string"/>
+            <xs:element name="dateAdded" type="xs:long"/>
+            <xs:element name="releaseYear" type="releaseYear"/>
+            <xs:element name="rating" type="xs:string"/>
+            <xs:element name="duration" type="xs:string"/>
+            <xs:element name="category" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="titleType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Movie"/>
+            <xs:enumeration value="Series"/>
+            <xs:enumeration value="TV Show"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="releaseYear">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="1900"/>
+            <xs:maxInclusive value="2020"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
