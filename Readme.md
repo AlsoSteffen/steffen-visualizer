@@ -1,6 +1,6 @@
 #Steffen API Data Visualizer
 
-#####This application was created to visualize data acquired from the [Steffen API](https://github.com/AlsoSteffen/steff-data-processing).
+This application was created to visualize data acquired from the [Steffen API](https://github.com/AlsoSteffen/steff-data-processing).
 
 
 
