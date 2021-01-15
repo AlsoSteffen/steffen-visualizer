@@ -22,7 +22,7 @@
             var data = google.visualization.arrayToDataTable([<?php echo getDataWithStartingDateFromJsonFiles('2016-10-01', '2016-10-31') ?>]);
 
             var options = {
-                title: 'Company Performance',
+                title: 'Tesla Stock relative to Trump Tweets and Netflix Releases',
                 curveType: 'function',
                 legend: {position: 'bottom'}
             };
