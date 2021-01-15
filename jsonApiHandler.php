@@ -4,22 +4,22 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JsonSchema\Validator;
 
-function getNetflixCountBasedOnDate($date)
+function getJsonNetflixCountBasedOnDate($date)
 {
     $path = "schema/netflix/netflix_schema.json";
-    return validateFile(file_get_contents("http://localhost:8090/netflix/count=" . $date), $path);
+    return validateJsonFile(file_get_contents("http://localhost:8090/netflix/count=" . $date), $path);
 }
 
-function getTweetCountBasedOnDate($date)
+function getJsonTweetCountBasedOnDate($date)
 {
     $path = "schema/tweets/tweets_schema.json";
-    return validateFile(file_get_contents("http://localhost:8090/tweet/count=" . $date), $path);
+    return validateJsonFile(file_get_contents("http://localhost:8090/tweet/count=" . $date), $path);
 }
 
-function getTeslaStockBasedOnDate($date)
+function getJsonTeslaStockBasedOnDate($date)
 {
     $path = "schema/tesla/tesla_schema.json";
-    return validateFile(file_get_contents("http://localhost:8090/teslaStock/json/date=" . $date), $path);
+    return validateJsonFile(file_get_contents("http://localhost:8090/teslaStock/json/date=" . $date), $path);
 }
 
 /**
@@ -29,14 +29,14 @@ function getTeslaStockBasedOnDate($date)
  * see https://github.com/justinrainbow/json-schema for the original code
  *
  * @param $file string filepath to json
- * @param $path string filepath to schema
+ * @param $schema string filepath to schema
  * @return mixed returns the file validated
  *
  * Make sure you have composer installed and that you run the
  * composer install command in the terminal to install needed
  * libraries
  */
-function validateFile($file, $path)
+function validateJsonFile($file, $schema)
 {
     // temp saving a non-object version so I don't need to retrieve data from an
     // object but instead just need to validate the object version of this to know
@@ -48,7 +48,7 @@ function validateFile($file, $path)
 
     $validator = new Validator();
 
-    $validator->validate($file, (object)['$ref' => 'file://' . realpath($path)]);
+    $validator->validate($file, (object)['$ref' => 'file://' . realpath($schema)]);
 
     if ($validator->isValid())
     {
@@ -89,7 +89,7 @@ function getAdjClose($tesla)
  * @param $endDate string - end date for data display (in yyyy-MM-dd format)
  * @return string returns a string in array format for Google charts.
  */
-function getDataWithStartingDate($startDate, $endDate)
+function getDataWithStartingDateFromJsonFiles($startDate, $endDate)
 {
     // final string being returned
     $string = "['Date', 'Number of Trump Tweets', 'Number of Netflix Releases', 'Tesla Close Price'], ";
@@ -103,9 +103,9 @@ function getDataWithStartingDate($startDate, $endDate)
 
         for ($i = 0; $i < $dateDiff->days; $i++)
         {
-            $stock = getTeslaStockBasedOnDate($startDate->format("d-m-Y"));
-            $tweet = getTweetCountBasedOnDate($startDate->format("d-m-Y"));
-            $netflix = getNetflixCountBasedOnDate($startDate->format("d-m-Y"));
+            $stock = getJsonTeslaStockBasedOnDate($startDate->format("d-m-Y"));
+            $tweet = getJsonTweetCountBasedOnDate($startDate->format("d-m-Y"));
+            $netflix = getJsonNetflixCountBasedOnDate($startDate->format("d-m-Y"));
             if ($stock != null)
             {
                 $string .= "['" . $startDate->format("d-m-Y") . "', " . $tweet . ", " . $netflix . ", " . getAdjClose($stock) . "], ";

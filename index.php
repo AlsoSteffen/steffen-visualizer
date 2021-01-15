@@ -6,7 +6,8 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <?php include("apiHandler.php"); ?>
+    <?php include("jsonApiHandler.php"); ?>
+    <?php include("xmlApiHandler.php");  ?>
 
     <!--Method from Google Charts to create charts in HTML-->
     <!--I did not create this method.-->
@@ -18,7 +19,7 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var data = google.visualization.arrayToDataTable([<?php echo getDataWithStartingDate('2016-10-01', '2016-10-31') ?>]);
+            var data = google.visualization.arrayToDataTable([<?php echo getDataWithStartingDateFromJsonFiles('2016-10-01', '2016-10-31') ?>]);
 
             var options = {
                 title: 'Company Performance',
