@@ -15,13 +15,13 @@
     <xs:complexType name="Tweet">
         <xs:sequence>
             <xs:element name="id" type="xs:long"/>
-            <xs:element name="link" type="xs:string"/>
-            <xs:element name="content" type="xs:string"/>
-            <xs:element name="date" type="xs:long"/>
-            <xs:element name="retweets" type="xs:int"/>
-            <xs:element name="favorites" type="xs:int"/>
-            <xs:element name="mentions" type="xs:string"/>
-            <xs:element name="tags" type="xs:string"/>
+            <xs:element name="link" type="xs:string" />
+            <xs:element name="content" type="xs:string"  />
+            <xs:element name="date" type="xs:long"  />
+            <xs:element name="retweets" type="xs:int"  />
+            <xs:element name="favorites" type="xs:int"  />
+            <xs:element name="mentions" type="xs:string"  />
+            <xs:element name="tags" type="xs:string"  />
         </xs:sequence>
     </xs:complexType>
 

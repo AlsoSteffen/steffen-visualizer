@@ -1,4 +1,4 @@
-[
+
   {
     "$schema": "netflix_schema.json",
     "id": 2,
@@ -8,10 +8,9 @@
     "cast": "1",
     "country": "1",
     "dateAdded": 1286661600000,
-    "releaseYear": 1,
+    "releaseYear": 1900,
     "rating": "NC-17",
     "duration": "test",
     "category": "test",
     "description": "tagTest"
   }
-]

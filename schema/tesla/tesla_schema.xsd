@@ -14,13 +14,13 @@
 
     <xs:complexType name="TeslaStock">
         <xs:sequence>
-            <xs:element name="date" type="xs:long"/>
-            <xs:element name="open" type="xs:double"/>
-            <xs:element name="high" type="xs:double"/>
-            <xs:element name="low" type="xs:double"/>
-            <xs:element name="close" type="xs:double"/>
-            <xs:element name="volume" type="xs:double"/>
-            <xs:element name="adjClose" type="xs:double"/>
+            <xs:element name="date" type="xs:long"  />
+            <xs:element name="open" type="xs:double"  />
+            <xs:element name="high" type="xs:double"  />
+            <xs:element name="low" type="xs:double"  />
+            <xs:element name="close" type="xs:double"  />
+            <xs:element name="volume" type="xs:double"  />
+            <xs:element name="adjClose" type="xs:double" />
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
