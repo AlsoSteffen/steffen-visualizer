@@ -23,12 +23,3 @@ This application was created to visualize data acquired from the [Steffen API](h
 - If everything is setup correctly the following should be displayed:
 
 ![chart_img](images/main_chart.png)
-
-___
-# Important
-
-Once the API is running, make sure you run the files to send data to the api.
-The following files input data from the datasets:
-[save_netflix](data_inputter/save_netflix.php),
-[save_tesla](data_inputter/save_tesla.php), and
-[save_tweet](data_inputter/save_tweet.php).
