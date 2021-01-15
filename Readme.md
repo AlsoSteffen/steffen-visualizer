@@ -1,4 +1,4 @@
-#Steffen API Data Visualizer
+# Steffen API Data Visualizer
 
 This application was created to visualize data acquired from the [Steffen API](https://github.com/AlsoSteffen/steff-data-processing).
 
@@ -25,7 +25,7 @@ This application was created to visualize data acquired from the [Steffen API](h
 ![chart_img](images/main_chart.png)
 
 ___
-#Important
+# Important
 
 Once the API is running, make sure you run the files to send data to the api.
 The following files input data from the datasets:
